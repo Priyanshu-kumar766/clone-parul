@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Parul University - Clone</title>
+
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body{
+      background: #f6f7fb;
+      color: #111;
+    }
+
+    /* ====== TOP BAR ====== */
+    .topbar{
+      background: #0b1b3a;
+      color: white;
+      padding: 10px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .topbar a{
+      color: white;
+      text-decoration: none;
+      margin-left: 12px;
+      opacity: 0.9;
+    }
+
+    .topbar a:hover{
+      opacity: 1;
+      text-decoration: underline;
+    }
+
+    /* ====== NAVBAR ====== */
+    header{
+      background: white;
+      padding: 14px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.07);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .logo{
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-badge{
+      width: 46px;
+      height: 46px;
+      border-radius: 10px;
+      background: linear-gradient(135deg,#ffb200,#ff4d00);
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      color: white;
+      letter-spacing: 1px;
+    }
+
+    .logo h2{
+      font-size: 18px;
+      line-height: 1.1;
+    }
+
+    .logo p{
+      font-size: 12px;
+      color: #444;
+    }
+
+    nav ul{
+      list-style: none;
+      display: flex;
+      gap: 22px;
+      align-items: center;
+    }
+
+    nav a{
+      text-decoration: none;
+      color: #111;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    nav a:hover{
+      color: #ff4d00;
+    }
+
+    .nav-btn{
+      background: #ff4d00;
+      color: white;
+      border: none;
+      padding: 10px 14px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    .nav-btn:hover{
+      background: #e34500;
+    }
+
+    /* ====== HERO ====== */
+    .hero{
+      padding: 55px 7%;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .hero-left h1{
+      font-size: 44px;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    .hero-left h1 span{
+      color: #ff4d00;
+    }
+
+    .hero-left p{
+      font-size: 16px;
+      color: #333;
+      line-height: 1.6;
+      margin-bottom: 22px;
+    }
+
+    .hero-actions{
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary{
+      background: #ff4d00;
+      color: white;
+      border: none;
+      padding: 12px 18px;
+      border-radius: 12px;
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    .btn-primary:hover{
+      background: #e34500;
+    }
+
+    .btn-outline{
+      background: transparent;
+      color: #111;
+      border: 2px solid #111;
+      padding: 12px 18px;
+      border-radius: 12px;
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    .btn-outline:hover{
+      border-color: #ff4d00;
+      color: #ff4d00;
+    }
+
+    .hero-right{
+      background: white;
+      border-radius: 20px;
+      padding: 18px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    .hero-image{
+      height: 320px;
+      border-radius: 16px;
+      background: linear-gradient(135deg,#0b1b3a,#ff4d00);
+      display: grid;
+      place-items: center;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .hero-image h3{
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .hero-image p{
+      opacity: 0.9;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    /* ====== STATS ====== */
+    .stats{
+      padding: 0 7% 40px;
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      gap: 16px;
+    }
+
+    .stat-card{
+      background: white;
+      padding: 18px;
+      border-radius: 18px;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.06);
+      text-align: center;
+    }
+
+    .stat-card h2{
+      font-size: 28px;
+      color: #0b1b3a;
+      margin-bottom: 6px;
+    }
+
+    .stat-card p{
+      font-size: 13px;
+      color: #444;
+    }
+
+    /* ====== SECTION TITLE ====== */
+    .section{
+      padding: 55px 7%;
+    }
+
+    .section-title{
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      margin-bottom: 22px;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .section-title h2{
+      font-size: 28px;
+    }
+
+    .section-title p{
+      max-width: 520px;
+      color: #444;
+      line-height: 1.6;
+    }
+
+    /* ====== PROGRAMS ====== */
+    .program-grid{
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .program-card{
+      background: white;
+      border-radius: 18px;
+      padding: 18px;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.06);
+      transition: 0.2s;
+    }
+
+    .program-card:hover{
+      transform: translateY(-4px);
+    }
+
+    .program-card .tag{
+      display: inline-block;
+      background: #ffe4d8;
+      color: #ff4d00;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .program-card h3{
+      margin-bottom: 10px;
+      font-size: 18px;
+    }
+
+    .program-card p{
+      font-size: 14px;
+      color: #444;
+      line-height: 1.6;
+      margin-bottom: 14px;
+    }
+
+    .program-card button{
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      background: #0b1b3a;
+      color: white;
+      font-weight: 700;
+    }
+
+    .program-card button:hover{
+      background: #09152d;
+    }
+
+    /* ====== ADMISSION BANNER ====== */
+    .admission{
+      background: linear-gradient(135deg,#ff4d00,#0b1b3a);
+      color: white;
+      padding: 45px 7%;
+      border-radius: 0;
+    }
+
+    .admission-inner{
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .admission-inner h2{
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+
+    .admission-inner p{
+      opacity: 0.9;
+      line-height: 1.6;
+      max-width: 600px;
+    }
+
+    /* ====== FOOTER ====== */
+    footer{
+      background: #0b1b3a;
+      color: white;
+      padding: 40px 7%;
+    }
+
+    .footer-grid{
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 20px;
+    }
+
+    footer h3{
+      margin-bottom: 10px;
+    }
+
+    footer p, footer a{
+      color: rgba(255,255,255,0.85);
+      line-height: 1.7;
+      font-size: 14px;
+      text-decoration: none;
+    }
+
+    footer a:hover{
+      color: white;
+      text-decoration: underline;
+    }
+
+    .copyright{
+      margin-top: 25px;
+      border-top: 1px solid rgba(255,255,255,0.15);
+      padding-top: 15px;
+      font-size: 13px;
+      opacity: 0.85;
+      text-align: center;
+    }
+
+    /* ====== RESPONSIVE ====== */
+    @media (max-width: 980px){
+      .hero{
+        grid-template-columns: 1fr;
+      }
+      .stats{
+        grid-template-columns: repeat(2,1fr);
+      }
+      .program-grid{
+        grid-template-columns: 1fr;
+      }
+      .footer-grid{
+        grid-template-columns: 1fr;
+      }
+      nav ul{
+        display: none; /* simple beginner version */
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div>📞 +91 00000 00000 | ✉️ admissions@paruluniversity.ac.in</div>
+    <div>
+      <a href="#">Student Login</a>
+      <a href="#">Staff Login</a>
+      <a href="#">Contact</a>
+    </div>
+  </div>
+
+  <!-- NAVBAR -->
+  <header>
+    <div class="logo">
+      <div class="logo-badge">PU</div>
+      <div>
+        <h2>Parul University</h2>
+        <p>University Clone Landing Page</p>
+      </div>
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Admissions</a></li>
+        <li><a href="#">Programs</a></li>
+        <li><a href="#">Campus Life</a></li>
+        <li><a href="#">Placements</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-btn">Apply Now</button>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-left">
+      <h1>Build Your Future with <span>Parul University</span></h1>
+      <p>
+        Explore world-class programs, modern campus life, and career-focused learning.
+        This is a beginner HTML + CSS clone layout inspired by a university homepage design.
+      </p>
+
+      <div class="hero-actions">
+        <button class="btn-primary">Get Admission Info</button>
+        <button class="btn-outline">Explore Programs</button>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="hero-image">
+        <div>
+          <h3>Admissions Open 2026</h3>
+          <p>
+            Undergraduate • Postgraduate • Diploma • Doctoral <br />
+            Apply today and start your journey.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats">
+    <div class="stat-card">
+      <h2>150+</h2>
+      <p>Programs Offered</p>
+    </div>
+    <div class="stat-card">
+      <h2>50K+</h2>
+      <p>Students</p>
+    </div>
+    <div class="stat-card">
+      <h2>1500+</h2>
+      <p>Faculty Members</p>
+    </div>
+    <div class="stat-card">
+      <h2>2000+</h2>
+      <p>Recruiters</p>
+    </div>
+  </section>
+
+  <!-- PROGRAMS -->
+  <section class="section">
+    <div class="section-title">
+      <div>
+        <h2>Popular Programs</h2>
+        <p>
+          Choose from a variety of professional and career-oriented programs.
+          This section uses CSS Grid for a modern layout.
+        </p>
+      </div>
+    </div>
+
+    <div class="program-grid">
+      <div class="program-card">
+        <div class="tag">Engineering</div>
+        <h3>B.Tech / M.Tech</h3>
+        <p>
+          Learn modern engineering skills with practical labs, industry projects,
+          and placement support.
+        </p>
+        <button>View Details</button>
+      </div>
+
+      <div class="program-card">
+        <div class="tag">Pharmacy</div>
+        <h3>B.Pharm / M.Pharm</h3>
+        <p>
+          Explore pharmaceutical sciences, medicinal chemistry, pharmacology,
+          and industrial training.
+        </p>
+        <button>View Details</button>
+      </div>
+
+      <div class="program-card">
+        <div class="tag">Management</div>
+        <h3>BBA / MBA</h3>
+        <p>
+          Build leadership and business skills through case studies, internships,
+          and industry mentorship.
+        </p>
+        <button>View Details</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADMISSION BANNER -->
+  <section class="admission">
+    <div class="admission-inner">
+      <div>
+        <h2>Start Your Admission Process</h2>
+        <p>
+          Fill out the application form and get guidance from our admission team.
+          This banner uses a gradient background similar to modern university websites.
+        </p>
+      </div>
+      <div>
+        <button class="btn-primary">Apply Online</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <h3>Parul University (Clone)</h3>
+        <p>
+          This is a practice website made using HTML and CSS only.
+          It is not the official website.
+        </p>
+      </div>
+
+      <div>
+        <h3>Quick Links</h3>
+        <p><a href="#">Admissions</a></p>
+        <p><a href="#">Programs</a></p>
+        <p><a href="#">Placements</a></p>
+        <p><a href="#">Campus Life</a></p>
+      </div>
+
+      <div>
+        <h3>Contact</h3>
+        <p>📍 Vadodara, Gujarat, India</p>
+        <p>📞 +91 00000 00000</p>
+        <p>✉️ admissions@paruluniversity.ac.in</p>
+      </div>
+    </div>
+
+    <div class="copyright">
+      © 2026 Parul University Clone | Made for HTML + CSS Practice
+    </div>
+  </footer>
+
+</body>
+</html>
